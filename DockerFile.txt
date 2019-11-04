@@ -1,0 +1,87 @@
+FROM ubuntu
+
+RUN apt-get update
+
+
+RUN mkdir /opt/tomcat/
+WORKDIR /opt/tomcat
+
+RUN curl -O http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.24/bin/apache-tomcat-9.0.24.tar.gz
+RUN tar xvfz apache*.tar.gz
+RUN mv apache-tomcat-9.0.24/* /opt/tomcat/.
+RUN yum -y install java
+RUN java -version
+
+#WORKDIR /opt/tomcat/webapps
+RUN curl -O -L https://github.com/viraj01satam/docker/archive/master.zip
+RUN unzip master.zip
+RUN mv product-pan /opt/tomcat/webapps
+
+EXPOSE 8080
+
+CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+
+
+<!-- Script One -->
+
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y openjdk-8-jdk
+COPY Main.java /Main.java
+RUN javac Main.java
+ENTRYPOINT java Main
+
+
+
+<!-- Script Two -->
+
+
+FROM centos
+RUN yum -y install java
+RUN java -version
+EXPOSE 8080
+CMD ["/root/ms/tomcat/bin/catalina.sh", "run"]
+
+
+
+
+
+wget https://github.com/viraj01satam/docker/tarball/master
+
+tar xvfz master
+
+apache-tomcat-9.0.24.tar.gz
+
+docker container run -it -d --name ms_v4 -p 8081:8081 ms_v4
+
+
+docker build . -t ms_v1
+docker build . -t ms_v1
+
+docker run -d -p 8080:8080 ms_v1
+
+docker run -it --rm -p 8888:8080 ms_v1
+
+docker container run -it -d --name ms_v1 -p 8888:8080 ms_v1
+
+
+curl -d '{"key1":"value1", "key2":"value2"}' -H "Content-Type: application/json" -X POST http://localhost:3000/data
+
+
+docker container ls -a
+
+docker container rm 
+
+catalina.sh
+
+docker system prune -f
+
+
+
+
+
+
+
+
+
+
